@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="alt-menu" label="Openbox 3">
+		<item label="thunar (root)">
+			<action name="Execute">
+				<execute>gksu -g thunar</execute>
+			</action>
+		</item>
+
+		<item label="spacefm (root)">
+			<action name="Execute">
+				<execute>gksu -g spacefm</execute>
+			</action>
+		</item>
+
+		<menu id="root-menu-logout" label="system">
+			<item label="log out">
+				<action name="Execute">
+					<execute>openbox --exit</execute>
+				</action>
+			</item>
+			<item label="reboot">
+				<action name="Execute">
+					<execute>systemctl reboot</execute>
+				</action>
+			</item>
+			<item label="shutdown">
+				<action name="Execute">
+					<execute>systemctl poweroff</execute>
+				</action>
+			</item>
+			<separator/>
+			<menu id="root-menu-config" label="openbox">
+				<item label="oboonf">
+					<action name="Execute">
+						<execute>obconf</execute>
+					</action>
+				</item>
+				<item label="obmenu">
+					<action name="Execute">
+						<execute>obmenu</execute>
+					</action>
+				</item>
+				<item label="reconfigure">
+					<action name="Reconfigure"/>
+				</item>
+				<item label="exit">
+					<action name="Exit"/>
+				</item>
+			</menu>
+		</menu>
+
+	</menu>
+
+	<menu id="ctrl-menu" label="Openbox 3">
+		<item label="xfceterm">
+			<action name="Execute">
+				<execute>/usr/bin/xfce4-terminal</execute>
+			</action>
+		</item>
+		<item label="xterm">
+			<action name="Execute">
+				<execute>/usr/bin/xterm</execute>
+			</action>
+		</item>
+		<item label="thunar">
+			<action name="Execute">
+				<execute>thunar</execute>
+			</action>
+		</item>
+		<item label="spacefm">
+			<action name="Execute">
+				<execute>spacefm</execute>
+			</action>
+		</item>
+
+		<menu id="applications" label="applications" execute="xdg_menu --format openbox3-pipe --root-menu /etc/xdg/menus/arch-applications.menu"></menu>
+
+ 		<!--<separator/>-->
+
+
+	</menu>
+</openbox_menu>
